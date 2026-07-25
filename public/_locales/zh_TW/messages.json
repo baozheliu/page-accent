@@ -1,0 +1,20 @@
+{
+  "extName": {
+    "message": "Page Accent"
+  },
+  "extDescription": {
+    "message": "替網站加上彩色標識線，一眼區分不同頁面。"
+  },
+  "cmdColorRed": {
+    "message": "套用紅色"
+  },
+  "cmdColorBlue": {
+    "message": "套用藍色"
+  },
+  "cmdColorGreen": {
+    "message": "套用綠色"
+  },
+  "cmdRemoveColor": {
+    "message": "移除顏色"
+  }
+}

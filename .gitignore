@@ -1,0 +1,42 @@
+# Dependencies and build output
+node_modules/
+dist/
+*.crx
+*.zip
+
+# Logs and caches
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.cache/
+.vite/
+coverage/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Editor and OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Local tooling and private working material
+.wrangler/
+.icon-preview.png
+*.local
+docs/参考/
+docs/tailscale-uuremote-troubleshooting.md
+docs/browser-extension-store-release-playbook.md
+docs/browser-extension-store-release-general-playbook.md
+docs/release-retrospectives/
+release/release-state.json
+release/store-assets/ChatGPT Image*.png
+release/store-assets/ScreenShot_*.png
+release/store-assets/image.png

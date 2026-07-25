@@ -1,0 +1,67 @@
+{
+  "extension": {
+    "name": "Page Accent",
+    "repository": "..",
+    "version": "0.1.3",
+    "supportedLocales": ["en", "zh_CN", "zh_TW"],
+    "privacyPolicyUrl": "https://tabmark-privacy.pages.dev/",
+    "supportUrl": "https://github.com/baozheliu/page-accent/issues"
+  },
+  "commands": {
+    "test": "npm test",
+    "validateManifest": "npm run validate:manifest",
+    "buildChrome": "npm run build:chrome",
+    "buildEdge": "npm run build:edge"
+  },
+  "stores": {
+    "chrome": {
+      "itemId": "acnhocpgpilpjfbnolmofeeilkfmempb",
+      "publisherId": "",
+      "visibility": "public",
+      "autoPublishAfterApproval": false
+    },
+    "edge": {
+      "productId": "7002e19d-e5a8-4042-b618-42ef7f12ae50",
+      "storeId": "0RDCKB8FXWGH",
+      "visibility": "public",
+      "markets": ["all"],
+      "forbiddenVisibleTerms": ["chrome"]
+    }
+  },
+  "artifacts": {
+    "chromePackage": "release/store-assets/page-accent-chrome-0.1.3.zip",
+    "edgePackage": "release/store-assets/page-accent-edge-0.1.3.zip"
+  },
+  "assets": [
+    {
+      "path": "release/store-assets/page-accent-store-icon-128.png",
+      "width": 128,
+      "height": 128,
+      "required": true
+    },
+    {
+      "path": "release/store-assets/page-accent-store-icon-300.png",
+      "width": 300,
+      "height": 300,
+      "required": true
+    },
+    {
+      "path": "release/store-assets/page-accent-screenshot-1280x800.png",
+      "width": 1280,
+      "height": 800,
+      "required": true
+    },
+    {
+      "path": "release/store-assets/page-accent-promo-440x280.png",
+      "width": 440,
+      "height": 280,
+      "required": true
+    },
+    {
+      "path": "release/store-assets/page-accent-promo-1400x560.png",
+      "width": 1400,
+      "height": 560,
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "extName": {
+    "message": "Page Accent"
+  },
+  "extDescription": {
+    "message": "Add a color line to websites and tell pages apart at a glance."
+  },
+  "cmdColorRed": {
+    "message": "Apply red"
+  },
+  "cmdColorBlue": {
+    "message": "Apply blue"
+  },
+  "cmdColorGreen": {
+    "message": "Apply green"
+  },
+  "cmdRemoveColor": {
+    "message": "Remove color"
+  }
+}

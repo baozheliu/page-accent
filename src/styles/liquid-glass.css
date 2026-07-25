@@ -1,0 +1,156 @@
+:root {
+  --lg-blue: #0071e3;
+  --lg-blue-rgb: 0, 113, 227;
+}
+
+.liquid-glass-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+/* =============================================
+   LIQUID SLIDER - iOS 26 style
+   Track height follows --line-width so the control
+   itself previews the page accent line thickness.
+   ============================================= */
+.liquid-slider {
+  --fill: 0.5;
+  --line-width: 3px;
+  --track-h: var(--line-width);
+  --hit-h: 24px;
+  --pad: 0px;
+  --thumb-w: max(10px, calc(var(--track-h) + 6px));
+  --travel: calc(100% - var(--thumb-w));
+  --thumb-x: calc(var(--travel) * var(--fill));
+  position: relative;
+  width: 184px;
+  height: max(var(--hit-h), var(--track-h));
+  flex: 0 0 auto;
+}
+
+.liquid-slider--wide {
+  width: 100%;
+}
+
+.liquid-slider__input {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.liquid-slider__visual {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: var(--track-h);
+  transform: translateY(-50%);
+  pointer-events: none;
+  border-radius: 999px;
+  transition: height 0.1s linear;
+}
+
+/* Track: the live thickness sample */
+.liquid-slider__track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(120, 130, 150, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 0.5px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    inset 0 1px 3px rgba(0, 0, 0, 0.06),
+    0 1px 2px rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+
+/* Fill level grows with the thumb; height matches the line. */
+.liquid-slider__level {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  width: calc(var(--thumb-x) + var(--thumb-w) / 2);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--lg-blue), #3aa0ff);
+  box-shadow: 0 0 12px rgba(var(--lg-blue-rgb), 0.3);
+  transition: width 0.1s linear;
+}
+
+.liquid-slider__level::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent);
+}
+
+/* Glass thumb — scales with the track thickness */
+.liquid-slider__thumb {
+  position: absolute;
+  top: 50%;
+  left: var(--thumb-x);
+  z-index: 5;
+  width: var(--thumb-w);
+  height: var(--thumb-w);
+  transform: translateY(-50%);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fff, #f2f4f7);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.18),
+    0 0.5px 2px rgba(0, 0, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
+  transition:
+    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    width 0.1s linear,
+    height 0.1s linear;
+}
+
+.liquid-slider__thumb::after {
+  content: '';
+  position: absolute;
+  top: 22%;
+  left: 50%;
+  width: 40%;
+  height: 18%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  filter: blur(0.5px);
+}
+
+.liquid-slider:hover .liquid-slider__thumb {
+  box-shadow:
+    0 3px 12px rgba(var(--lg-blue-rgb), 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+.liquid-slider__input:active ~ .liquid-slider__visual .liquid-slider__thumb {
+  transform: translateY(-50%) scale(0.92);
+}
+
+.liquid-slider__input:focus-visible ~ .liquid-slider__visual {
+  outline: 3px solid rgba(var(--lg-blue-rgb), 0.3);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+/* Optional fill override for live color + thickness preview. */
+.liquid-slider--line-preview .liquid-slider__level {
+  background: var(--slider-line-fill, linear-gradient(90deg, var(--lg-blue), #3aa0ff));
+}
